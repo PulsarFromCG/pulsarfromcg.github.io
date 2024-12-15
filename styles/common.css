@@ -3,10 +3,6 @@ body{
 }
 
 .page{
-    width: 50%;
-    border-radius: 3%;
-    border: 2px solid white;
-    box-shadow: 5px 5px 10px;
 
     background: rgb(153,153,153);
     background: linear-gradient(
@@ -19,27 +15,44 @@ body{
         rgba(255,255,255,0.4) 78%, 
         rgba(153,153,153,0.4) 94%);
 
-    margin: auto;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    padding: 1%;
+    border: 2px solid white;
+    box-shadow: 5px 5px 10px;
+
+        .page {
+        width: 85%;
+
+        margin: auto;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        padding: 1%;
+
+        font-size: 25px;
+        color: black;
+
+        border-radius: 1%;
+    }
+
+    .header_chibi{
+        width: 150px;
+        height: 150px;
+    }
+    
+    .footer_logo{
+        width: 80px;
+        height: 80px
+    }
 }
 
 .header_page{
     padding: 2%;
     text-align: right;
 }
-.header_chibi{
-    width: 150px;
-    height: 150px;
-}
+
+
 
 .body_page{
     border-top: 1px solid white;
     border-bottom: 1px solid white;
-
-    font-size: 25px;
-    color: black;
 
     padding: 2%;
 }
@@ -50,7 +63,107 @@ body{
     padding: 2%;
 }
 
-.footer_logo{
-    width: 80px;
-    height: 80px
+
+@media screen and (max-width: 359px) {
+    .page {
+        width: 90%;
+
+        margin: auto;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        padding: 1%;
+
+        font-size: 25px;
+        color: black;
+
+        border-radius: 1%;
+    }
+
+    .header_chibi{
+        width: 80px;
+        height: 80px;
+    }
+    
+    .footer_logo{
+        width: 40px;
+        height: 40px
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 419px) {
+    .page {
+        width: 85%;
+
+        margin: auto;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        padding: 1%;
+
+        font-size: 25px;
+        color: black;
+
+        border-radius: 1%;
+    }
+
+    .header_chibi{
+        width: 80px;
+        height: 80px;
+    }
+    
+    .footer_logo{
+        width: 40px;
+        height: 40px
+    }
+}
+
+@media screen and (min-width: 420px) and (max-width: 479px) {
+    .page {
+        width: 85%;
+
+        margin: auto;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        padding: 1%;
+
+        font-size: 25px;
+        color: black;
+
+        border-radius: 1%;
+    }
+
+    .header_chibi{
+        width: 80px;
+        height: 80px;
+    }
+    
+    .footer_logo{
+        width: 40px;
+        height: 40px
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .page {
+        width: 85%;
+
+        margin: auto;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        padding: 1%;
+
+        font-size: 25px;
+        color: black;
+
+        border-radius: 1%;
+    }
+
+    .header_chibi{
+        width: 80px;
+        height: 80px;
+    }
+    
+    .footer_logo{
+        width: 40px;
+        height: 40px
+    }
 }
