@@ -2,6 +2,31 @@ body{
     background-color: beige;
 }
 
+.button{
+    background: rgb(153,153,153);
+    background: linear-gradient(
+        45deg, 
+        rgba(153,153,153,0.4) 11%, 
+        rgba(255,255,255,0.4) 24%, 
+        rgba(204,204,204,0.4) 37%, 
+        rgba(221,221,221,0.4) 46%, 
+        rgba(204,204,204,0.4) 60%, 
+        rgba(255,255,255,0.4) 78%, 
+        rgba(153,153,153,0.4) 94%);
+
+    border: 2px solid white;
+    padding: 1%;
+
+    border-radius: 10%;
+}
+
+.button_section{
+    width: 85%;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
 .page{
 
     background: rgb(153,153,153);
@@ -18,29 +43,30 @@ body{
     border: 2px solid white;
     box-shadow: 5px 5px 10px;
 
-        .page {
-        width: 85%;
+}
 
-        margin: auto;
-        margin-top: 5%;
-        margin-bottom: 5%;
-        padding: 1%;
+.page {
+    width: 85%;
 
-        font-size: 25px;
-        color: black;
+    margin: auto;
 
-        border-radius: 1%;
-    }
+    margin-bottom: 5%;
+    padding: 1%;
 
-    .header_chibi{
-        width: 150px;
-        height: 150px;
-    }
-    
-    .footer_logo{
-        width: 80px;
-        height: 80px
-    }
+    font-size: 25px;
+    color: black;
+
+    border-radius: 1%;
+}
+
+.header_chibi{
+    width: 150px;
+    height: 150px;
+}
+
+.footer_logo{
+    width: 80px;
+    height: 80px
 }
 
 .header_page{
@@ -69,7 +95,6 @@ body{
         width: 90%;
 
         margin: auto;
-        margin-top: 5%;
         margin-bottom: 5%;
         padding: 1%;
 
@@ -95,7 +120,6 @@ body{
         width: 85%;
 
         margin: auto;
-        margin-top: 5%;
         margin-bottom: 5%;
         padding: 1%;
 
@@ -121,7 +145,6 @@ body{
         width: 85%;
 
         margin: auto;
-        margin-top: 5%;
         margin-bottom: 5%;
         padding: 1%;
 
@@ -147,7 +170,6 @@ body{
         width: 85%;
 
         margin: auto;
-        margin-top: 5%;
         margin-bottom: 5%;
         padding: 1%;
 

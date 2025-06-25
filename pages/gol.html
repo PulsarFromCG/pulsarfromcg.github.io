@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de la Vie</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #game {
+            display: grid;
+            grid-template-columns: repeat(48, 15px);
+            grid-template-rows: repeat(48, 15px);
+            gap: 1px;
+            margin: 20px auto;
+            width: fit-content;
+        }
+
+        .cell {
+            width: 15px;
+            height: 15px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .alive {
+            background-color: #4caf50;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Jeu de la Vie</h1>
+    <div id="game"></div>
+    <button id="start">Démarrer</button>
+    <button id="stop">Arrêter</button>
+    <button id="reset">Réinitialiser</button>
+
+    <script>
+        const rows = 48;
+        const cols = 48;
+
+        const gameContainer = document.getElementById('game');
+        const startButton = document.getElementById('start');
+        const stopButton = document.getElementById('stop');
+        const resetButton = document.getElementById('reset');
+
+        let grid = Array.from({ length: rows }, () => Array(cols).fill(0));
+
+        let interval = null;
+
+        // Create grid
+        for (let i = 0; i < rows; i++) {
+            for (let j = 0; j < cols; j++) {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                cell.dataset.row = i;
+                cell.dataset.col = j;
+                gameContainer.appendChild(cell);
+
+                cell.addEventListener('click', () => {
+                    grid[i][j] = grid[i][j] ? 0 : 1;
+                    cell.classList.toggle('alive');
+                });
+            }
+        }
+
+        const getNextState = (grid) => {
+            const nextGrid = Array.from({ length: rows }, () => Array(cols).fill(0));
+
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < cols; j++) {
+                    const aliveNeighbors = countAliveNeighbors(grid, i, j);
+
+                    if (grid[i][j] === 1) {
+                        nextGrid[i][j] = aliveNeighbors === 2 || aliveNeighbors === 3 ? 1 : 0;
+                    } else {
+                        nextGrid[i][j] = aliveNeighbors === 3 ? 1 : 0;
+                    }
+                }
+            }
+
+            return nextGrid;
+        };
+
+        const countAliveNeighbors = (grid, x, y) => {
+            let count = 0;
+            for (let i = -1; i <= 1; i++) {
+                for (let j = -1; j <= 1; j++) {
+                    if (i === 0 && j === 0) continue;
+                    const ni = x + i;
+                    const nj = y + j;
+                    if (ni >= 0 && nj >= 0 && ni < rows && nj < cols) {
+                        count += grid[ni][nj];
+                    }
+                }
+            }
+            return count;
+        };
+
+        const renderGrid = () => {
+            document.querySelectorAll('.cell').forEach(cell => {
+                const row = cell.dataset.row;
+                const col = cell.dataset.col;
+                cell.classList.toggle('alive', grid[row][col] === 1);
+            });
+        };
+
+        const startGame = () => {
+            if (!interval) {
+                interval = setInterval(() => {
+                    grid = getNextState(grid);
+                    renderGrid();
+                }, 100);
+            }
+        };
+
+        const stopGame = () => {
+            clearInterval(interval);
+            interval = null;
+        };
+
+        const resetGame = () => {
+            stopGame();
+            grid = Array.from({ length: rows }, () => Array(cols).fill(0));
+            renderGrid();
+        };
+
+        startButton.addEventListener('click', startGame);
+        stopButton.addEventListener('click', stopGame);
+        resetButton.addEventListener('click', resetGame);
+    </script>
+</body>
+</html>
